@@ -12,7 +12,7 @@ module.exports = {
     devtool: 'inline-source-map',
     context: path.join(basePath, 'src'),
     entry: {
-      app: './js/main.ts', 
+      app: './js/main.tsx', 
       appStyles: [
         './css/mystyles.scss',
       ],
@@ -39,13 +39,13 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.js$/,
+          test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
         },
         {
           test: /\.css$/,
-          // exclude: /node_modules/,
+          exclude: /node_modules/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader, 
@@ -71,7 +71,7 @@ module.exports = {
           use: {
             loader: 'url-loader',
             options: {
-              limit: 2000,
+              limit: 2 * 1024, // las img < 2048 bytes se cargan en el bundle
               name: './assets/images/[hash].[name].[ext]',
             }
           }
