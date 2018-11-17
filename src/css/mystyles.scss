@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
 $blue-color: teal;
 
 .red-background {
@@ -7,4 +9,50 @@ $blue-color: teal;
 img {
     display: block;
     width: 200px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: lightSkyBlue;
+}
+
+.site-content {
+  padding: 1em;
+  flex-grow: 1;
+}
+
+
+.header-container {
+    background-color: black;
+    border-bottom: 3px solid yellowgreen;
+    height: 5em;
+
+    img {
+        padding: 1em;
+    }
+}
+
+h1 {
+    margin-top: 2%;
+}
+
+.footer-container {
+    height: 3em;
+    width: 100%;
+    background-color: black;
+    border-top: 3px solid yellowgreen;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+    font-size: larger;
 }

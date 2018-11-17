@@ -12,16 +12,12 @@ module.exports = {
     devtool: 'inline-source-map',
     context: path.join(basePath, 'src'),
     entry: {
-      app: './js/students.ts', 
+      app: './js/main.ts', 
       appStyles: [
         './css/mystyles.scss',
       ],
       vendor: [
         '@babel/polyfill',
-        'jquery'
-      ],
-      vendorStyles: [
-        '../node_modules/bootstrap/dist/css/bootstrap.css',
       ]
     },
     output: {
@@ -101,10 +97,6 @@ module.exports = {
         template: 'index.html', // este esta en ./  => fichero origen
         // hash: true,  // va el hash en el chunk
         favicon: './assets/images/favicon.ico'
-      }),
-      new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
       }),
       new MiniCssExtractPlugin({
         // filename: "[name].css",
