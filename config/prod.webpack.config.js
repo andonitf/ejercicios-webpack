@@ -1,25 +1,25 @@
 var webpackMerge = require('webpack-merge');
-var commonConfig = require('./base.webpack.config.js');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var commonConfig = require('../base.webpack.config.js');
 var CompressionPlugin = require('compression-webpack-plugin');
-
-var basePath = __dirname;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-source-map',
-  output: {
-    path: path.join(basePath, 'dist'),
-    filename: '[name].[chunkhash].js',
+  mode: 'production',
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        // sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].[chunkhash].css',
-      disable: false,
-      allChunks: true,
-    }),
     new CompressionPlugin({
-      asset: '[path].gz[query]',
+      test: /\.(js|css)$/,
+      filename: '[path].gz[query]',
       algorithm: 'gzip',
       minRatio: 0.8,
     }),

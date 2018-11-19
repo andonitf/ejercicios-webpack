@@ -10,7 +10,7 @@ module.exports = {
       extensions: ['.js', '.ts', '.tsx']
     },
     devtool: 'inline-source-map',
-    context: path.join(basePath, 'src'),
+    context: path.join(basePath, './src'),
     entry: {
       app: './js/main.tsx', 
       appStyles: [
@@ -21,6 +21,7 @@ module.exports = {
       ]
     },
     output: {
+      // path: path.join(basePath, '../dist'),
       filename: './js/[name].[chunkhash].bundle.js'
     },
     optimization: {
