@@ -19,8 +19,6 @@ export default class DemoGallery extends React.Component<{}, IMyComponentState> 
 
         fetch('http://www.euskolabelliga.com/json/argazkiakLSM.php?e=1521890221')
         .then(resultado => {
-            console.log('resultado');
-            console.log(resultado);
             return resultado.json();
         }).then(data => {
             let imagenes = data.items.map((imagen) => {
@@ -47,8 +45,8 @@ export default class DemoGallery extends React.Component<{}, IMyComponentState> 
         }
 
         return (
-            pictures.map(imagen =>
-                            <div className="image-item">
+            pictures.map((imagen, index) =>
+                            <div  className="image-item">
                                 <img src={imagen['url']} />
                                 <label>Autor: </label>
                                 <span dangerouslySetInnerHTML={getAuthor(imagen['autor'])} />
