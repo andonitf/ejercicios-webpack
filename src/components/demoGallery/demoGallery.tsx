@@ -46,7 +46,7 @@ export default class DemoGallery extends React.Component<{}, IMyComponentState> 
 
         return (
             pictures.map((imagen, index) =>
-                            <div  className="image-item">
+                            <div key={index} className="image-item">
                                 <img src={imagen['url']} />
                                 <label>Autor: </label>
                                 <span dangerouslySetInnerHTML={getAuthor(imagen['autor'])} />
