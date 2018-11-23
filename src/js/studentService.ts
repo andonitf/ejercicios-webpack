@@ -6,6 +6,7 @@ export function getRandomStudent(): string {
 
 function getStudentList() {
     // Aquí procede obtener los datos de un API...
+    console.log(`Aquí procede obtener los datos de un API en base a: process.env.BASE_API_URL: ${process.env.BASE_API_URL}`);
     const studentList: string[] = ['Braulio','Dani','Jose Manuel','Aarón','Alejandro','Andoni','Daily','Jon','Juan Carlos','Juanmi','Laura','Alfonso','Luis Antonio','Olga','Pablo'];
     return studentList;
 }

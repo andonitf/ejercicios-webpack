@@ -26,7 +26,6 @@ body {
 
 .site-content {
   padding: 1em;
-  flex-grow: 1;
 }
 
 
@@ -46,7 +45,6 @@ h1 {
 
 .footer-container {
     height: 3em;
-    width: 100%;
     background-color: black;
     border-top: 3px solid yellowgreen;
     margin-top: 10px;
@@ -55,4 +53,46 @@ h1 {
     vertical-align: middle;
     padding: 1em;
     font-size: larger;
+    height: 100%;
+}
+
+#gallery-content {
+    padding: 1em;
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+
+    .image-item {
+        float: left;
+        padding: 1em;
+        font-size: small;
+        text-align: center;
+        margin: 0.1em;
+        max-width: 45%;
+        padding: 0.3em;
+        border-radius: 0.5em;
+
+        @media screen and (min-width: 321px) {
+            max-width: 44%;
+            padding: 0.5em;
+        }
+        @media screen and (min-width: 376px) {
+            max-width: 28%;
+            padding: 0.5em;
+        }
+        @media screen and (min-width: 426px) {
+            max-width: 22%;
+            padding: 0.5em;
+        }         
+
+        img {
+            max-width: 100%;
+        }
+    }
+    .image-item:nth-of-type(odd){
+       // border: 1px black  solid;
+    }
+    .image-item:nth-of-type(even){
+        // border: 1px gray solid;
+    }
 }

@@ -2,6 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
+const env = require('./base.env.config');
 
 var basePath = __dirname;
 
@@ -10,7 +11,7 @@ module.exports = {
       extensions: ['.js', '.ts', '.tsx']
     },
     devtool: 'inline-source-map',
-    context: path.join(basePath, './src'),
+    context: path.join(basePath, '../src'),
     entry: {
       app: './js/main.tsx', 
       appStyles: [
@@ -103,7 +104,11 @@ module.exports = {
         // filename: "[name].css",
         filename: "./css/[name].[chunkhash].css",
         chunkFilename: "[id].css"
-      })
+      }),
+      new webpack.DefinePlugin({
+        'process.env.LM_REST_ENV': JSON.stringify(env.LM_REST_ENV),
+        'process.env.BASE_API_URL': JSON.stringify(env.BASE_API_URL),
+      }),
     ]
   };
   
